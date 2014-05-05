@@ -119,7 +119,7 @@ if($_REQUEST['install']!=""){
 
 
 							</style>	
-						</head>OH! Please give me write (chmod 755) rights in: ".str_replace('servers/','',__dir__);
+						</head>OH! Please give me write (chmod 755) rights in: ".str_replace('gocoeditserver','',__dir__);
 		echo ("<br><br> <a href='?install=true'>RETRY?</a></html>");
 		exit(0);
 	}
@@ -252,7 +252,8 @@ class ConnectorFTP {
 		$configfile = @file_get_contents("../tmp/config_admin.php");
 		$configfile = str_replace('<?php', '', $configfile);
 		$config = json_decode($configfile);
-		
+		 
+
 		if(!$config){
 			
 			print("
@@ -494,7 +495,13 @@ class ConnectorFTP {
 			return $this->returnData($return);
 		}
 		
-		$this->startdir = ftp_pwd($this->con).'/';
+		if($this->tokenfile->startdir != ""){
+			$this->startdir = $this->tokenfile->startdir;
+		} else{
+			$this->startdir = ftp_pwd($this->con).'/';
+		}
+
+
 
 	}
 
@@ -587,7 +594,7 @@ class ConnectorFTP {
 	    return rmdir($dir); 
     } 
 
-	public function login($server,$username,$password){
+	public function login($server,$username,$password,$startdir=""){
 		
 		$server = str_replace('ftp://', '', $server);
 		$server = explode(':', $server);
@@ -611,15 +618,21 @@ class ConnectorFTP {
 					)
 				);
 
+
+
 			$storedata = array(
 				"token"=> $newtoken,
 				"user"=>$username,
 				"server"=>str_replace('ftp://', '', $server),
-				"password"=>$password
+				"password"=>$password,
+				"startdir"=>$startdir
 				);
+			
+
 
 			file_put_contents('../tmp/user_'.$username.'.php', "<?php".json_encode($storedata));
 		} else {
+
 			$return = array("error"=>"auth error", "errorcode"=>503, 'ackid' => $this->ackid);
 		}
 
@@ -633,8 +646,12 @@ class ConnectorFTP {
 		$this->getTokenFile();
 		$this->ftplogin();
 
+ 		 
+
 		if(!$this->checkPath('/'.$path,""))
 			die('security error');
+
+
 
 
 		$content = array();
@@ -1129,6 +1146,7 @@ class ConnectorCrypt {
 		$p5 =  md5(date('m'));
 
 
+
 		return $p1.$p2.$p3.$p4.$p5;
 	}
 
@@ -1149,12 +1167,16 @@ class ConnectorCrypt {
 
 		}
 
+	 
 
 		if(isset($_REQUEST['server']) && $_REQUEST['server'] && $_REQUEST['server'] != "")
-			if($tokenfile->server[0].':'.$tokenfile->server[1] != str_replace('ftp://', '', $_REQUEST['server'])){
+			if($tokenfile->server[0].':'.$tokenfile->server[1].$tokenfile->startdir != str_replace('ftp://', '', $_REQUEST['server'].$_REQUEST['startdir'])){
 				 
 				return false;
 			}
+			
+		 
+
 
 		
 		if($tokenfile->token != $token){
@@ -1189,7 +1211,8 @@ if(isset($_REQUEST['type'])){
 		case 'login':
 				$connector->checkCrypto();
 				if(isset($_REQUEST['ackid'])) $connector->ACKID($_REQUEST['ackid']);
-				$connector->login($_REQUEST['server'],$_REQUEST['username'],$_REQUEST['password']);
+				if($_REQUEST['startdir'] == "null") $_REQUEST['startdir'] = "";
+				$connector->login($_REQUEST['server'],$_REQUEST['username'],$_REQUEST['password'],$_REQUEST['startdir']);
 			break;
 		case 'listdir':
 				 
