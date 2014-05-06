@@ -11,11 +11,11 @@ GoCoEdit - The Remote Code Editor
 -------------
 
 The Client-App is available at the Apple AppStore:
-https://itunes.apple.com/app/gocoedit-remote-code-editor/
+https://itunes.apple.com/app/gocoedit-remote-code-editor/id869346854?l=de&ls=1&mt=8
 
 
 Install instructions 
-==============
+-------------
 
 1. Upload the gocoeditserver.php to a folder on your Server or clone this repo
 2. Chmod the parent folder and give gocoeditserver.php write rights
