@@ -8,7 +8,7 @@ date_default_timezone_set("Europe/Berlin");
 if(isset($_REQUEST['install']))
 if($_REQUEST['install']!=""){
 
-	if(file_exists("../tmp/config_admin.php")){
+	if(file_exists("./tmp/config_admin.php")){
 
 		print("
 					<html>
@@ -57,13 +57,13 @@ if($_REQUEST['install']!=""){
 		die();
 	}
 
-	if(!@mkdir('../tmp')){
+	if(!@mkdir('./tmp')){
 
-		file_put_contents("../tmp/gocoed-tmp","gocoed needs this");
+		file_put_contents("./tmp/gocoed-tmp","gocoed needs this");
 		
 
 	}
-	$configfile = @file_get_contents("../tmp/config_admin.php");
+	$configfile = @file_get_contents("./tmp/config_admin.php");
 	$configfile = str_replace('<?php', '', $configfile);
 	$config = json_decode($configfile,true);
 
@@ -81,7 +81,7 @@ if($_REQUEST['install']!=""){
 	$config['salt'] = $salt;
 	$config['connectorid'] = base64_encode('{"connectorurl":"'.$connector_url.'","s":"'.$salt.'"}');
 	
-	if(!file_put_contents("../tmp/config_admin.php","<?php".json_encode($config))){
+	if(!file_put_contents("./tmp/config_admin.php","<?php".json_encode($config))){
 		echo "<html>
 						<head>
 							<style>
@@ -119,7 +119,7 @@ if($_REQUEST['install']!=""){
 
 
 							</style>	
-						</head>OH! Please give me write (chmod 755) rights in: ".str_replace('gocoeditserver','',__dir__);
+						</head>OH! Please give me write (chmod 755) rights in: ".str_replace('','',__dir__);
 		echo ("<br><br> <a href='?install=true'>RETRY?</a></html>");
 		exit(0);
 	}
@@ -198,10 +198,10 @@ class ConnectorFTP {
 
 		$this->crypto = new ConnectorCrypt();
 
-		file_put_contents("../tmp/gocoed-tmp","gocoed needs this");
-		$myuser = fileowner("../tmp/gocoed-tmp");
+		file_put_contents("./tmp/gocoed-tmp","gocoed needs this");
+		$myuser = fileowner("./tmp/gocoed-tmp");
 
-		$configfile = @file_get_contents("../tmp/config_admin.php");
+		$configfile = @file_get_contents("./tmp/config_admin.php");
 		$configfile = str_replace('<?php', '', $configfile);
 		$this->config = json_decode($configfile);
 
@@ -249,7 +249,7 @@ class ConnectorFTP {
 
 	public function checkCrypto(){
 		 
-		$configfile = @file_get_contents("../tmp/config_admin.php");
+		$configfile = @file_get_contents("./tmp/config_admin.php");
 		$configfile = str_replace('<?php', '', $configfile);
 		$config = json_decode($configfile);
 		 
@@ -348,7 +348,7 @@ class ConnectorFTP {
 		 
 		$return = array();
 		$return['hosts'] = null;
-		if($hosts = file_get_contents('../tmp/config_hosts.php')){
+		if($hosts = file_get_contents('./tmp/config_hosts.php')){
 		 	$hosts = str_replace('<?php', '', $hosts);
 			$hostsjson = json_decode($hosts,true);
 			$return['hosts'] = $hostsjson;
@@ -400,18 +400,18 @@ class ConnectorFTP {
 
 		$uid = substr($this->tokenfile->user,0,10).time();
 	  
-		mkdir('../tmp/__gocoed_tmp_'.$uid);
-	 	chmod('../tmp/__gocoed_tmp_'.$uid, 0777);
+		mkdir('./tmp/__gocoed_tmp_'.$uid);
+	 	chmod('./tmp/__gocoed_tmp_'.$uid, 0777);
 
-		$fd = fopen('../tmp/__gocoed_tmp_'.$uid.'/tmp_db_download', 'w');
+		$fd = fopen('./tmp/__gocoed_tmp_'.$uid.'/tmp_db_download', 'w');
 		fwrite($fd, $st);
 		fclose($fd);
 
 		curl_close($ch);
 	 
-		ftp_put($this->con, ($desc), '../tmp/__gocoed_tmp_'.$uid.'/tmp_db_download', FTP_BINARY);
+		ftp_put($this->con, ($desc), './tmp/__gocoed_tmp_'.$uid.'/tmp_db_download', FTP_BINARY);
 
-		@unlink('../tmp/__gocoed_tmp_'.$uid);
+		@unlink('./tmp/__gocoed_tmp_'.$uid);
 
 
 	}
@@ -630,7 +630,7 @@ class ConnectorFTP {
 			
 
 
-			file_put_contents('../tmp/user_'.$username.'.php', "<?php".json_encode($storedata));
+			file_put_contents('./tmp/user_'.$username.'.php', "<?php".json_encode($storedata));
 		} else {
 
 			$return = array("error"=>"auth error", "errorcode"=>503, 'ackid' => $this->ackid);
@@ -816,7 +816,7 @@ class ConnectorFTP {
 		$this->ftplogin();
 		$uid = substr($this->tokenfile->user,0,10).time();
 
-		$local_file = '../tmp/tmpfile-'.$uid.'.php';
+		$local_file = './tmp/tmpfile-'.$uid.'.php';
 
 	 	
 		@ftp_get($this->con,$local_file,$this->startdir.$path, FTP_ASCII, 0);
@@ -901,7 +901,7 @@ class ConnectorFTP {
 		
 		$uid = substr($this->tokenfile->user,0,10).time();
 
-		$local_file = '../tmp/tmpfile-'.$uid.'.php';
+		$local_file = './tmp/tmpfile-'.$uid.'.php';
 
 		 
 		file_put_contents($local_file,($_REQUEST['content']));
@@ -1014,8 +1014,8 @@ class ConnectorFTP {
 	 	$uid = substr($this->tokenfile->user,0,10).time();
 	  
 
-	 	mkdir('../tmp/__gocoed_tmp_'.$uid);
-	 	chmod('../tmp/__gocoed_tmp_'.$uid, 0777);
+	 	mkdir('./tmp/__gocoed_tmp_'.$uid);
+	 	chmod('./tmp/__gocoed_tmp_'.$uid, 0777);
 
 	  
 
@@ -1025,9 +1025,9 @@ class ConnectorFTP {
 	 			
 	 			 
 	 		 	if($file['directory']=="true"){
-	 		 		mkdir('../tmp/__gocoed_tmp_'.$uid.'/'.$file['filename']);
+	 		 		mkdir('./tmp/__gocoed_tmp_'.$uid.'/'.$file['filename']);
 
-	 				$this->ftp_syncdown($this->startdir.$file['fullpath'],'../tmp/__gocoed_tmp_'.$uid.'/'.$file['filename']);
+	 				$this->ftp_syncdown($this->startdir.$file['fullpath'],'./tmp/__gocoed_tmp_'.$uid.'/'.$file['filename']);
 
 	 				if (@!ftp_chdir($this->con, $this->startdir.$topath.'/'.$file['filename'])) {
 	 					
@@ -1036,20 +1036,20 @@ class ConnectorFTP {
 	 					ftp_chdir($this->con, $this->startdir);
 	 				}
 
-	 				$this->ftp_upload('../tmp/__gocoed_tmp_'.$uid.'/'.$file['filename'],$this->startdir.$topath.'/'.$file['filename']);
+	 				$this->ftp_upload('./tmp/__gocoed_tmp_'.$uid.'/'.$file['filename'],$this->startdir.$topath.'/'.$file['filename']);
 
 	 			} else {
 
 	 				 ftp_chdir($this->con, $this->startdir);
 	 				 
-	 				 ftp_get($this->con, '../tmp/__gocoed_tmp_'.$uid.'/'.$file['filename'], $this->startdir.$file['fullpath'], FTP_BINARY);
+	 				 ftp_get($this->con, './tmp/__gocoed_tmp_'.$uid.'/'.$file['filename'], $this->startdir.$file['fullpath'], FTP_BINARY);
 
-	 				 ftp_put($this->con,$this->startdir.$topath.'/'.$file['filename'], '../tmp/__gocoed_tmp_'.$uid.'/'.$file['filename'], FTP_BINARY);
+	 				 ftp_put($this->con,$this->startdir.$topath.'/'.$file['filename'], './tmp/__gocoed_tmp_'.$uid.'/'.$file['filename'], FTP_BINARY);
 
 	 			}
 	 	}
 
-	 	$this->deleteDirectory('../tmp/__gocoed_tmp_'.$uid);
+	 	$this->deleteDirectory('./tmp/__gocoed_tmp_'.$uid);
 	  
 	 	$return['success'] = true;
 		
@@ -1146,7 +1146,6 @@ class ConnectorCrypt {
 		$p5 =  md5(date('m'));
 
 
-
 		return $p1.$p2.$p3.$p4.$p5;
 	}
 
@@ -1161,7 +1160,7 @@ class ConnectorCrypt {
 		}
 
 		
-		if(!$tokenfile = json_decode( str_replace('<?php', '', @file_get_contents('../tmp/user_'.$_REQUEST['username'].'.php')))){
+		if(!$tokenfile = json_decode( str_replace('<?php', '', @file_get_contents('./tmp/user_'.$_REQUEST['username'].'.php')))){
 			 
 			 return false;
 
