@@ -317,14 +317,17 @@ class ConnectorFTP {
 
 	}
 
-	public function fileUpload($topath){
+	public function fileUpload($topath,$overwrite=null){
 
 		$this->getTokenFile();
 		$this->ftplogin();
 
 		foreach ($_FILES as $key => $value) {
 
-			 $value['name'] = $this->checkfileExsits($topath,$value['name']);
+			if(!$overwrite)
+			$value['name'] = $this->checkfileExsits($topath,$value['name']);
+			
+			
 			 ftp_put($this->con, $this->startdir.$topath.'/'.$value['name'], $value['tmp_name'], FTP_BINARY);
 			 //move_uploaded_file($value['tmp_name'],$config->docroot.'/'.$_REQUEST['topath'].'/'.$value['name']);
 		}
@@ -1261,7 +1264,7 @@ if(isset($_REQUEST['type'])){
 			break;
 		case 'fileupload':
 				if(isset($_REQUEST['ackid'])) $connector->ACKID($_REQUEST['ackid']);
-				$connector->fileUpload($_REQUEST['topath']);
+				$connector->fileUpload($_REQUEST['topath'],$_REQUEST['overwrite']);
 			break;
 		case 'dropboxfileupload':
 			
