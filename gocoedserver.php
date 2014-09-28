@@ -504,6 +504,11 @@ class ConnectorFTP {
 			$this->startdir = ftp_pwd($this->con).'/';
 		}
 
+		if(substr($this->startdir, -1) != "/"){
+			$this->startdir = $this->startdir."/";
+		}
+		
+		 $this->startdir = str_replace('//','/',$this->startdir);
 
 
 	}
@@ -964,11 +969,14 @@ class ConnectorFTP {
 		if(substr($file['path'], -1) != "/"){
 			$file['path'] = $file['path']."/";
 		}
+		
 
 		if(@ftp_rename($this->con, $this->startdir.$file['fullpath'],$this->startdir.$file['path'].$to ) )
 			$return['success'] = true;
-		else
-			$return['error'] = "not permitted".$file['path'].$to;
+		else {
+			$return['error'] = "not permitted rename ".$this->startdir.$file['fullpath'].' to '.$this->startdir.$file['path'].$to;
+			$return['errorcode'] = 998;
+		}
 
 		ftp_close($this->con);
 		return $this->returnData($return);
