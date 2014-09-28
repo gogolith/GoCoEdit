@@ -960,12 +960,15 @@ class ConnectorFTP {
 
 	 	$this->getTokenFile();
 		$this->ftplogin();
-		  
+		 
+		if(substr($file['path'], -1) != "/"){
+			$file['path'] = $file['path']."/";
+		}
 
-		if(@ftp_rename($this->con, $this->startdir.$file['fullpath'],$this->startdir.$file['path'].'/'.$to ) )
+		if(@ftp_rename($this->con, $this->startdir.$file['fullpath'],$this->startdir.$file['path'].$to ) )
 			$return['success'] = true;
 		else
-			$return['error'] = "not permitted".$file['path'].'/'.$to;
+			$return['error'] = "not permitted".$file['path'].$to;
 
 		ftp_close($this->con);
 		return $this->returnData($return);
