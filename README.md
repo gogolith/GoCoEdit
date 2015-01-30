@@ -27,6 +27,18 @@ Install instructions
 6. Use it
 
 
+Support
+-------------
+
+Questions
+Twitter: http://twitter.com/planetdine
+E-Mail: develop@gogolith.de
+
+Report bugs and issues
+https://github.com/gogolith/gocoeditserver/issues
+
+
+
 License
 -------------
 Copyright © 2014 Christoph Gogolin
