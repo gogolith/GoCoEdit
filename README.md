@@ -1,8 +1,8 @@
-GoCoEditServer
+GoCoEditServer-Connector
 ==============
 
-PHP version of the GoCoEdit Server. 
-It connects the app with your own Server used 
+PHP version of the GoCoEdit Server-Connector. 
+It connects the app with your own Http-Server used 
 for the ftp part. 
 
 **(this is an optional Add-On for the App, only needed for ftp connections over port 80)**
