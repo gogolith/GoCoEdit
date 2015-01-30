@@ -30,13 +30,12 @@ Install instructions
 Support
 -------------
 
-Questions
+**Questions:**
 
 Twitter: http://twitter.com/planetdine
-
 E-Mail: develop@gogolith.de
 
-Report bugs and issues
+**Report bugs and issues:**
 
 https://github.com/gogolith/gocoeditserver/issues
 
