@@ -9,7 +9,7 @@ for the ftp part.
 
 All Server connections are stored in your App.
 
-GoCoEdit - The Remote Code Editor
+GoCoEdit - Code and Text Editor for iOS
 -------------
 
 The Client-App is available at the Apple AppStore:
@@ -20,11 +20,24 @@ Install instructions
 -------------
 
 1. Upload the gocoeditserver.php to a folder on your Server or clone this repo
-2. Chmod the parent folder and give gocoeditserver.php write rights
+`https://github.com/gogolith/gocoeditserver.git`
+2. Chmod the tmp folder and give gocoeditserver.php write rights to it
+`chmod 777 tmp`
 3. Access gocoeditserver.php in your Browser (example: https://yourserver.de/gocoeditserver/gocoeditserver.php)
-4. Notice the "Connector Code"
+4. Notice the "Connector ID" (it will also stored in tmp/config_admin.php under connectorid)
 5. Enter the "Connector Code" in your GoCoEdit App
-6. Use it
+6. Create a new remote within the iOS App and select "REMOTE PHP TO FTP" and use it
+
+
+Limitations 
+-------------
+
+(compared to the supported "native" connections -ftp,sftp,dropbox,google drive- in GoCoEdit)
+
+- Works only with the default ftp port 21
+- Some file actions are not enabled
+- Works only with UTF-8 encoded files
+- You need full access to your server to install the connector
 
 
 Support
@@ -34,6 +47,8 @@ Support
 
 Twitter: http://twitter.com/planetdine
 E-Mail: develop@gogolith.de
+Web: gocoedit.com
+Docs: gocoedit.com/docs (still in progress)
 
 **Report bugs and issues:**
 
@@ -43,7 +58,7 @@ https://github.com/gogolith/gocoeditserver/issues
 
 License
 -------------
-Copyright © 2014 Christoph Gogolin
+Copyright © 2016 Christoph Gogolin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
