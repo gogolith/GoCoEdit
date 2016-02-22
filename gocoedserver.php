@@ -16,11 +16,12 @@ if($_REQUEST['install']!=""){
 							<style>
 
 								body{
-									font-family:monospace;
+									font-family:'Source Code Pro', monospace;
 									font-size:14px;
 									color:#aaa;
 									text-align:center;
 									background:#222;
+									padding-top: 50px;
 								}
 
 								textarea{
@@ -46,9 +47,9 @@ if($_REQUEST['install']!=""){
 
 							</style>	
 						</head>
-						<h1>GOCOED allready installed... now use it!</h1>
+						<h1>GoCoEdit is allready installed... <br>Now you can use it!</h1>
 						<p class='sub'>
-							Your the id is stored in tmp/config_admin.php.
+							Your ID is stored in tmp/config_admin.php.<br> Paste it to the GoCoEdit iOS App. <br><br><br> <a style='font-size:2em; color:#fff' href='https://itunes.apple.com/app/gocoedit-code-text-editor/id869346854?mt=8'>GET GoCoEdit on the AppStore</a>
 						</p>
 					</html>
 
@@ -87,11 +88,12 @@ if($_REQUEST['install']!=""){
 							<style>
 
 								body{
-									font-family:monospace;
+									font-family:'Source Code Pro',monospace;
 									font-size:14px;
 									color:#aaa;
 									text-align:center;
 									background:#222;
+									padding-top: 50px;
 								}
 
 								a{
@@ -119,8 +121,8 @@ if($_REQUEST['install']!=""){
 
 
 							</style>	
-						</head>OH! Please give me write (chmod 755) rights in: ".str_replace('','',__dir__);
-		echo ("<br><br> <a href='?install=true'>RETRY?</a></html>");
+						</head><h1>OH! Can't write to tmp folder!</h1>Please give gocoedserver.php write rights (chmod 777) in: <br><br><b>".str_replace('','',__dir__.'/tmp');
+		echo ("</b><br><br> <a style='font-size:2em' href='?install=true'>RETRY?</a></html>");
 		exit(0);
 	}
 
@@ -132,11 +134,12 @@ if($_REQUEST['install']!=""){
 							<style>
 
 								body{
-									font-family:monospace;
+									font-family:'Source Code Pro',monospace;
 									font-size:14px;
 									color:#aaa;
 									text-align:center;
 									background:#222;
+									padding-top: 50px;
 								}
 
 								textarea{
@@ -163,7 +166,7 @@ if($_REQUEST['install']!=""){
 						</head>
 						<h1>YEH! Installation done!</h1>
 						<p>
-							Copy and Paste this Connector ID to your GoCoEd-Client!
+							Copy and Paste this Connector ID to your GoCoEdit App on iOS!
 						</p>
 						<p class='sub'>
 							Your ID is stored in tmp/config_admin.php.
@@ -262,11 +265,12 @@ class ConnectorFTP {
 							<style>
 
 								body{
-									font-family:monospace;
+									font-family:'Source Code Pro',monospace;
 									font-size:14px;
 									color:#aaa;
 									text-align:center;
 									background:#222;
+									padding-top:50px;
 								}
 
 								textarea{
@@ -295,10 +299,10 @@ class ConnectorFTP {
 
 							</style>
 						</head>
-							<h1>no config file found...</h1>
-						<p>
-							<a href='?install=true'>Install GoCoEd-Server NOW?</a>
-						</p>
+							<h1>No config file found.</h1>
+							<p><br><br>
+								<a style='font-size:2em' href='?install=true'>Install GoCoEdit-Server, now!</a>
+							</p>
 					</html>
 
 				");
@@ -1152,11 +1156,11 @@ class ConnectorCrypt {
 	public function specialToken(){
 
 
-		$p1 =  ""; //hash("sha256",$_SERVER['HTTP_USER_AGENT']);
-		$p2 =  "";//md5($_SERVER['HTTP_REFERER']);
-		$p3 =  "";// md5($_SERVER['REMOTE_ADDR']);
+		$p1 =  "";  
+		$p2 =  ""; 
+		$p3 =  ""; 
 		$p4 =  "";
-		//$p4 =  hash("sha256",$_SERVER['REMOTE_HOST']);
+	 
 		$p5 =  md5(date('m'));
 
 
