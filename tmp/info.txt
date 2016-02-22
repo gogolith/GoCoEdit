@@ -1,0 +1,1 @@
+// Give gocoedserver.php write right to this directory
