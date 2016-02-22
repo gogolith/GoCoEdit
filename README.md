@@ -13,31 +13,22 @@ All Server connections are stored in your App
 GoCoEdit - Code and Text Editor for iOS
 -------------
 
-The Client-App is available at the Apple AppStore:
-
+The Client-App is available at the Apple AppStore:  
 https://itunes.apple.com/app/gocoedit-remote-code-editor/id869346854?l=de&ls=1&mt=8
 
 
 Install instructions 
 -------------
 
-1. Upload the gocoeditserver.php to a folder on your Server or clone this repo
-
+1. Upload the gocoeditserver.php to a folder on your Server or clone this repo  
 `git clone https://github.com/gogolith/gocoeditserver.git`
-
-2. Chmod the tmp folder and give gocoeditserver.php write rights to it
-
+2. Chmod the tmp folder and give gocoeditserver.php write rights to it  
 `chmod 777 tmp`
-
-3. Access gocoeditserver.php in your Browser 
-
+3. Access gocoeditserver.php in your Browser  
 (example: https://yourserver.de/gocoeditserver/gocoeditserver.php)
-
-4. Notice the "Connector ID" 
-
+4. Notice the "Connector ID/Code"  
 (it will also stored in tmp/config_admin.php under connectorid)
-
-5. Enter the "Connector Code" in your GoCoEdit App
+5. Enter the "Connector ID/Code" in your GoCoEdit App
 6. Create a new remote within the iOS App and select "REMOTE PHP TO FTP" and use it
 
 
@@ -58,13 +49,10 @@ Support
 
 **Questions:**
 
-Twitter: http://twitter.com/planetdine
-
-E-Mail: develop@gogolith.de
-
-Web: http://gocoedit.com
-
-Docs: http://gocoedit.com/docs (still in progress)
+Twitter: http://twitter.com/planetdine  
+E-Mail: develop@gogolith.de  
+Web: http://gocoedit.com  
+Docs: http://gocoedit.com/docs (still in progress)  
 
 **Report bugs and issues:**
 
