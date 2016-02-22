@@ -48,8 +48,11 @@ Support
 **Questions:**
 
 Twitter: http://twitter.com/planetdine
+
 E-Mail: develop@gogolith.de
+
 Web: gocoedit.com
+
 Docs: gocoedit.com/docs (still in progress)
 
 **Report bugs and issues:**
