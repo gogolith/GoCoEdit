@@ -5,7 +5,8 @@ PHP version of the GoCoEdit Server-Connector.
 It connects the app with your own Http-Server used 
 for the ftp part. 
 
-**(this is an optional Add-On for the App, only needed for ftp connections over port 80)**
+** This is an optional Add-On for the iOS App, only for an edge case use to connect to a FTP-Server over port 80 **
+** The GoCoEdit App can connect by default to serval Servers (FTP, SFTP, DROPBOX, GOOGLE DRIVE) without this connector **
 
 All Server connections are stored in your App.
 
@@ -20,7 +21,7 @@ Install instructions
 -------------
 
 1. Upload the gocoeditserver.php to a folder on your Server or clone this repo
-`https://github.com/gogolith/gocoeditserver.git`
+`git clone https://github.com/gogolith/gocoeditserver.git`
 2. Chmod the tmp folder and give gocoeditserver.php write rights to it
 `chmod 777 tmp`
 3. Access gocoeditserver.php in your Browser (example: https://yourserver.de/gocoeditserver/gocoeditserver.php)
@@ -37,7 +38,8 @@ Limitations
 - Works only with the default ftp port 21
 - Some file actions are not enabled
 - Works only with UTF-8 encoded files
-- You need full access to your server to install the connector
+- You need full access to your server to install the connector 
+- Webserver with php interpreter required - like nginx or apache
 
 
 Support
