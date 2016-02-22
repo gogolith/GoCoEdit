@@ -23,7 +23,7 @@ Install instructions
 1. Upload the gocoeditserver.php to a folder on your Server or clone this repo  
 `git clone https://github.com/gogolith/gocoeditserver.git`
 2. Chmod the tmp folder and give gocoeditserver.php write rights to it  
-`chmod 777 tmp`
+`chmod 777 gocoeditserver/tmp`
 3. Access gocoeditserver.php in your Browser  
 (example: https://yourserver.de/gocoeditserver/gocoeditserver.php)
 4. Notice the "Connector ID/Code"  
