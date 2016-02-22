@@ -13,7 +13,7 @@ All Server connections are stored in your App
 GoCoEdit - Code and Text Editor for iOS
 -------------
 
-The Client-App is available at the Apple AppStore:  
+The App is available at the Apple AppStore:  
 https://itunes.apple.com/app/gocoedit-remote-code-editor/id869346854?l=de&ls=1&mt=8
 
 
@@ -35,9 +35,9 @@ Install instructions
 Limitations 
 -------------
 
-(compared to the supported "native" connections -ftp,sftp,dropbox,google drive- in GoCoEdit)
+Compared to the supported "native" connections (ftp,sftp,dropbox,google drive) in GoCoEdit.
 
-- Works only with the default ftp port 21
+- Connector works only with the default ftp port 21
 - Some file actions are not enabled
 - Works only with UTF-8 encoded files
 - You need full access to your server to install the connector 
