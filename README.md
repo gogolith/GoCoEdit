@@ -6,7 +6,7 @@ It enables your GoCoEdit iOS-App to connect to your own Server (by HTTP/HTTPS) t
 
 **This is an optional Add-On for the iOS App, only for an edge case use!  
 You only needs this to connect to a FTP-Server over port 80.  
-The GoCoEdit App can connect by default to serval Servers (FTP, SFTP, DROPBOX, GOOGLE DRIVE) without this connector**
+The GoCoEdit App can connect by default to serval Servers (FTP, SFTP, DROPBOX, GOOGLE DRIVE, ONEDRIVE) without this connector**
 
 All Server connections are stored in your App 
 (temporary on your own server only if you use this connector).
@@ -63,7 +63,7 @@ https://github.com/gogolith/gocoeditserver/issues
 
 License
 -------------
-Copyright © 2016 Christoph Gogolin
+Copyright © 2017 Christoph Gogolin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
