@@ -14,7 +14,7 @@ Owner contact email: develop@gogolith.de
 Personal Data
 -----------------------
 
-All entered data (login data, history, cached files) are stored only within the App. 
+All entered data (login data, history, cached files) are stored only within GoCoEdit (the App). 
 The App do not collect and send any user data to our servers. 
 
 
@@ -81,5 +81,5 @@ Legal information
 -----------------------
 
 This privacy statement has been prepared based on provisions of multiple legislations, including Art. 13/14 of Regulation (EU) 2016/679 (General Data Protection Regulation).
-This privacy policy relates solely to Christoph Gogolin, if not stated otherwise within this document.
+This privacy policy relates solely to GoCoEdit / Christoph Gogolin, if not stated otherwise within this document.
 Latest update: May, 2018
