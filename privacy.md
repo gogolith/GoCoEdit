@@ -4,10 +4,10 @@ GoCoEdit Privacy Policy
 Owner and Data Controller
 -----------------------
 
-Christoph Gogolin
-Wiesenweg 3 
-21524 Brunstorf
-Germany
+Christoph Gogolin,
+Wiesenweg 3,
+21524 Brunstorf,
+Germany,
 Owner contact email: develop@gogolith.de
 
 
