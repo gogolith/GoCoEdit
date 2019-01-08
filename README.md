@@ -1,6 +1,8 @@
 GoCoEditServer-Connector
 ==============
 
+(This repo doesn't contain the GoCoEdit source code it is only used for feature request and issue tracking)
+
 PHP version of the GoCoEdit Server-Connector. 
 It enables your GoCoEdit iOS-App to connect to your own Server (by HTTP/HTTPS) that creates a FTP connection to a third ftp server.
 
